@@ -613,11 +613,9 @@
       </div>
     </div>
 
-    <a href="https://app.squareup.com/appointments/book/7ivur9hi00t736/L7FSZYVD6DZCM/start"
-       target="_blank"
-       class="booking-btn">
-       Book Appointment Now
-    </a>
+    <button type="button" class="booking-btn" onclick="submitBooking()">
+      Book Appointment Now
+    </button>
   </div>
 </div>
 
@@ -746,13 +744,53 @@ document.querySelectorAll('.time-slot').forEach(slot => {
 });
 
 // ── BOOKING SUBMIT ──
+function resetForm() {
+  document.getElementById('f-fname').value = '';
+  document.getElementById('f-lname').value = '';
+  document.getElementById('f-phone').value = '';
+  document.getElementById('f-email').value = '';
+  document.getElementById('f-service').value = '';
+  document.getElementById('f-address').value = '';
+  document.getElementById('f-notes').value = '';
+  selectedDate = null;
+  selectedTime = null;
+  document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+  document.getElementById('selected-date-display').textContent = '📅 Tap a date to select';
+  renderCal();
+}
+
 function submitBooking() {
-  if (!selectedDate) { alert('Please select a date for your appointment.'); return; }
-  if (!selectedTime) { alert('Please select a preferred time slot.'); return; }
+  if (!selectedDate) {
+    alert('Please select a date for your appointment.');
+    return;
+  }
+  if (!selectedTime) {
+    alert('Please select a preferred time slot.');
+    return;
+  }
   const service = document.getElementById('f-service').value;
-  if (!service) { alert('Please select a service.'); return; }
-  const dateStr = selectedDate.toLocaleDateString('en-CA', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
-  alert('✅ Booking request received!\n\nService: ' + service + '\nDate: ' + dateStr + '\nTime: ' + selectedTime + '\n\nWe\'ll confirm via WhatsApp or email shortly. Thanks!');
+  if (!service) {
+    alert('Please select a service.');
+    return;
+  }
+  const dateStr = selectedDate.toLocaleDateString('en-CA', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  });
+  window.open(
+    'https://app.squareup.com/appointments/book/7ivur9hi00t736/L7FSZYVD6DZCM/start',
+    '_blank'
+  );
+  alert(
+    '✅ Booking request ready!\n\n' +
+    'Service: ' + service + '\n' +
+    'Date: ' + dateStr + '\n' +
+    'Time: ' + selectedTime + '\n\n' +
+    'Redirecting to Square...'
+  );
+  resetForm();
 }
 
 // ── QR CODE ──
