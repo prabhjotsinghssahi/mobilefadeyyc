@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MobileFadeyyc – Classic Barbershop | Calgary</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<title>MobileFade<span style="text-transform:uppercase">YYC</span> – Classic Barbershop | Calgary</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
   :root {
@@ -14,6 +14,7 @@
     --brown: #3d2b1f;
     --gold: #c9a84c;
     --gold-light: #e8c96e;
+    --gold-bright: #f5d47a;
     --stripe-red: #c0392b;
     --stripe-blue: #1a3a5c;
     --mid: #6b5a4e;
@@ -21,12 +22,29 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { background: var(--cream); color: var(--dark); font-family: 'Libre Baskerville', serif; overflow-x: hidden; }
+  body { background: var(--cream); color: var(--dark); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
   body::before {
     content: '';
     position: fixed; inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
     pointer-events: none; z-index: 1000; opacity: 0.5;
+  }
+
+  /* HIGHLIGHT YYC */
+  .yyc {
+    color: var(--gold-bright);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .yyc-dark {
+    color: var(--dark);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--gold);
+    padding: 0 4px;
+    border-radius: 2px;
   }
 
   /* NAV */
@@ -36,10 +54,22 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 3rem; height: 70px;
   }
-  .nav-logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.4rem; color: var(--gold); text-decoration: none; }
-  .nav-logo span { color: var(--cream); font-style: italic; }
+  .nav-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 900; font-size: 1.25rem; color: var(--gold); text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .nav-logo .yyc-nav {
+    color: var(--gold-bright);
+    font-style: normal;
+    text-transform: uppercase;
+  }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-family: 'Josefin Sans', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); text-decoration: none; transition: color 0.2s; }
+  .nav-links a {
+    font-family: 'Raleway', sans-serif; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream);
+    text-decoration: none; transition: color 0.2s;
+  }
   .nav-links a:hover { color: var(--gold); }
   .nav-cta { background: var(--gold); color: var(--dark) !important; padding: 0.5rem 1.2rem; border-radius: 2px; }
   .nav-cta:hover { background: var(--gold-light) !important; }
@@ -53,14 +83,62 @@
   }
   @keyframes stripeScroll { from { background-position: 0 0; } to { background-position: 0 160px; } }
   .hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; position: relative; z-index: 2; }
-  .hero-badge { font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); display: inline-block; padding: 0.35rem 1rem; margin-bottom: 1.5rem; animation: fadeUp 0.8s ease both; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; color: var(--cream); line-height: 1.05; margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.15s ease both; }
-  .hero h1 em { color: var(--gold); font-style: italic; display: block; }
-  .hero p { color: #b0a090; font-size: 1.05rem; line-height: 1.8; max-width: 440px; margin-bottom: 2.5rem; animation: fadeUp 0.8s 0.3s ease both; }
+  .hero-badge {
+    font-family: 'Raleway', sans-serif; font-size: 0.7rem; font-weight: 800;
+    letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold);
+    border: 1px solid var(--gold); display: inline-block; padding: 0.35rem 1rem;
+    margin-bottom: 1.5rem; animation: fadeUp 0.8s ease both;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif; font-size: clamp(2.6rem, 5.5vw, 5rem);
+    font-weight: 900; color: var(--cream); line-height: 1.08;
+    margin-bottom: 1rem; animation: fadeUp 0.8s 0.15s ease both;
+    letter-spacing: 0.03em;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.15em; }
+  .hero p {
+    color: #b0a090; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+    line-height: 1.85; max-width: 440px; margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  /* TAGLINE QUOTE BLOCK */
+  .hero-quote {
+    background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold);
+    padding: 0.9rem 1.2rem; margin-bottom: 2rem;
+    animation: fadeUp 0.8s 0.38s ease both;
+  }
+  .hero-quote .tagline-top {
+    font-family: 'Raleway', sans-serif; font-size: 0.68rem; font-weight: 800;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.35rem;
+  }
+  .hero-quote .tagline-loc {
+    font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: #8a7a6a;
+    margin-bottom: 0.5rem;
+  }
+  .hero-quote blockquote {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 0.96rem; color: #c8b898; line-height: 1.6;
+  }
+
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.8s 0.45s ease both; }
-  .btn-primary { background: var(--gold); color: var(--dark); font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 1rem 2.2rem; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.2s; }
+  .btn-primary {
+    background: var(--gold); color: var(--dark);
+    font-family: 'Raleway', sans-serif; font-size: 0.75rem; font-weight: 800;
+    letter-spacing: 0.2em; text-transform: uppercase; padding: 1rem 2.2rem;
+    border: none; cursor: pointer; text-decoration: none; display: inline-block;
+    transition: background 0.2s, transform 0.2s;
+  }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .btn-ghost { background: transparent; color: var(--cream); font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 1rem 2.2rem; border: 1px solid #6b5a4e; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+  .btn-ghost {
+    background: transparent; color: var(--cream);
+    font-family: 'Raleway', sans-serif; font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; padding: 1rem 2.2rem;
+    border: 1px solid #6b5a4e; cursor: pointer; text-decoration: none;
+    display: inline-block; transition: border-color 0.2s, color 0.2s;
+  }
   .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
   .hero-visual { display: flex; justify-content: center; align-items: center; animation: fadeUp 0.8s 0.3s ease both; }
   .pole-wrap { position: relative; width: 120px; height: 380px; }
@@ -74,9 +152,16 @@
   .divider { height: 6px; background: repeating-linear-gradient(90deg, var(--stripe-red) 0px, var(--stripe-red) 30px, var(--cream) 30px, var(--cream) 60px, var(--stripe-blue) 60px, var(--stripe-blue) 90px, var(--cream) 90px, var(--cream) 120px); }
 
   /* SHARED */
-  .section-label { font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label {
+    font-family: 'Raleway', sans-serif; font-size: 0.68rem; font-weight: 800;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.75rem; display: flex; align-items: center; gap: 1rem;
+  }
   .section-label::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
+  .section-title {
+    font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+    font-weight: 700; line-height: 1.2; margin-bottom: 1rem; letter-spacing: 0.02em;
+  }
 
   /* SERVICES */
   .services-section { background: var(--warm-white); padding: 6rem 3rem; }
@@ -88,9 +173,9 @@
   .service-card:hover .service-desc { color: #9a8a7a; }
   .service-card:hover .service-icon { border-color: var(--gold); color: var(--gold); }
   .service-icon { width: 56px; height: 56px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1.2rem; transition: border-color 0.25s, color 0.25s; }
-  .service-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; transition: color 0.25s; }
-  .service-desc { font-size: 0.9rem; line-height: 1.7; color: var(--mid); transition: color 0.25s; }
-  .service-tag { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 0.2rem 0.6rem; border-radius: 2px; }
+  .service-name { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; transition: color 0.25s; letter-spacing: 0.03em; }
+  .service-desc { font-family: 'Cormorant Garamond', serif; font-size: 1rem; line-height: 1.7; color: var(--mid); transition: color 0.25s; }
+  .service-tag { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Raleway', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 0.2rem 0.6rem; border-radius: 2px; font-weight: 700; }
 
   /* PRICING */
   .pricing-section { background: var(--dark); padding: 6rem 3rem; }
@@ -102,10 +187,10 @@
   .price-row:hover { background: #231a12; }
   .price-row-left { display: flex; align-items: center; gap: 1.2rem; }
   .price-icon { font-size: 1.3rem; width: 2rem; text-align: center; }
-  .price-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--cream); }
-  .price-note { font-size: 0.8rem; color: #7a6a5a; margin-top: 0.15rem; font-style: italic; }
+  .price-name { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--cream); letter-spacing: 0.02em; }
+  .price-note { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: #7a6a5a; margin-top: 0.15rem; font-style: italic; }
   .price-dots { flex: 1; border-bottom: 1px dashed #3a2e26; margin: 0 1.5rem; }
-  .price-amount { font-family: 'Josefin Sans', sans-serif; font-size: 1.2rem; font-weight: 600; color: var(--gold); }
+  .price-amount { font-family: 'Raleway', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--gold); }
 
   /* GALLERY */
   .gallery-section { background: var(--cream); padding: 6rem 3rem; }
@@ -116,24 +201,24 @@
   .gallery-item:nth-child(4) { grid-column: span 2; }
   .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
   .gallery-item:hover img { transform: scale(1.05); }
-  .gallery-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: #6b5a4e; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .gallery-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: #6b5a4e; font-family: 'Raleway', sans-serif; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; }
   .gallery-fallback .glyph { font-size: 2rem; opacity: 0.3; }
-  .gallery-label { position: absolute; bottom: 0.8rem; left: 0.8rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.9); background: rgba(0,0,0,0.55); padding: 0.3rem 0.7rem; border-radius: 2px; z-index: 2; }
-  .gallery-note { margin-top: 1.5rem; text-align: center; font-size: 0.88rem; font-style: italic; color: var(--mid); }
+  .gallery-label { position: absolute; bottom: 0.8rem; left: 0.8rem; font-family: 'Raleway', sans-serif; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.9); background: rgba(0,0,0,0.55); padding: 0.3rem 0.7rem; border-radius: 2px; z-index: 2; font-weight: 600; }
+  .gallery-note { margin-top: 1.5rem; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--mid); }
 
   /* HOW IT WORKS */
   .mobile-section { background: var(--warm-white); padding: 6rem 3rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .mobile-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
   .mobile-steps { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
   .step { display: flex; gap: 1.5rem; align-items: flex-start; }
-  .step-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--border); line-height: 1; min-width: 2.5rem; }
-  .step-text h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 0.25rem; }
-  .step-text p { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
+  .step-num { font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 700; color: var(--border); line-height: 1; min-width: 2.5rem; }
+  .step-text h4 { font-family: 'Cinzel', serif; font-size: 0.95rem; margin-bottom: 0.25rem; letter-spacing: 0.04em; }
+  .step-text p { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--mid); line-height: 1.65; }
   .location-badge { background: var(--dark); color: var(--cream); padding: 2.5rem; border-radius: 4px; text-align: center; position: relative; max-width: 300px; margin: 0 auto; }
   .location-badge::before { content: ''; position: absolute; inset: 8px; border: 1px solid var(--gold); border-radius: 2px; opacity: 0.4; pointer-events: none; }
   .location-badge .pin { font-size: 2.5rem; margin-bottom: 0.8rem; display: block; }
-  .location-badge h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 0.4rem; }
-  .location-badge p { font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #7a6a5a; line-height: 1.8; }
+  .location-badge h3 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 0.4rem; letter-spacing: 0.04em; }
+  .location-badge p { font-family: 'Raleway', sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7a6a5a; line-height: 1.9; font-weight: 500; }
 
   /* BOOKING */
   .booking-section { background: var(--dark); padding: 6rem 3rem; }
@@ -141,12 +226,12 @@
   .booking-inner .section-label { justify-content: center; }
   .booking-inner .section-label::before { display: none; }
   .booking-inner .section-title { color: var(--cream); margin-bottom: 1rem; }
-  .booking-inner > p { color: #7a6a5a; font-size: 1rem; line-height: 1.8; margin-bottom: 2.5rem; }
+  .booking-inner > p { font-family: 'Cormorant Garamond', serif; color: #7a6a5a; font-size: 1.08rem; line-height: 1.8; margin-bottom: 2.5rem; }
   .booking-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left; margin-bottom: 1.5rem; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
   .form-group.full { grid-column: span 2; }
-  .form-group label { font-family: 'Josefin Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #7a6a5a; }
-  .form-group input, .form-group select, .form-group textarea { background: #231a12; border: 1px solid #3a2e26; color: var(--cream); padding: 0.8rem 1rem; font-family: 'Libre Baskerville', serif; font-size: 0.9rem; border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%; }
+  .form-group label { font-family: 'Raleway', sans-serif; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7a6a5a; font-weight: 700; }
+  .form-group input, .form-group select, .form-group textarea { background: #231a12; border: 1px solid #3a2e26; color: var(--cream); padding: 0.8rem 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1rem; border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%; }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
   .form-group select option { background: #231a12; }
   .form-group textarea { resize: vertical; min-height: 90px; }
@@ -156,56 +241,56 @@
   .cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem; }
   .cal-nav-btn { background: none; border: 1px solid #3a2e26; color: var(--gold); width: 30px; height: 30px; border-radius: 2px; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
   .cal-nav-btn:hover { background: #3a2e26; }
-  .cal-month-label { font-family: 'Josefin Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); }
+  .cal-month-label { font-family: 'Raleway', sans-serif; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); font-weight: 700; }
   .cal-days-header { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 4px; }
-  .cal-day-name { font-family: 'Josefin Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: #5a4a3a; text-align: center; padding: 0.25rem 0; }
+  .cal-day-name { font-family: 'Raleway', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: #5a4a3a; text-align: center; padding: 0.25rem 0; font-weight: 700; }
   .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
-  .cal-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; color: var(--cream); border-radius: 2px; cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; border: 1px solid transparent; }
+  .cal-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-family: 'Raleway', sans-serif; font-size: 0.75rem; color: var(--cream); border-radius: 2px; cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; border: 1px solid transparent; font-weight: 500; }
   .cal-cell.cal-empty { cursor: default; color: transparent; }
   .cal-cell.cal-past { color: #3a2e26 !important; cursor: not-allowed; }
   .cal-cell.cal-today { border-color: #5a4a3a; color: var(--gold-light); font-weight: 700; }
   .cal-cell.cal-available:hover { background: #3a2e26; border-color: var(--gold); }
-  .cal-cell.cal-selected { background: var(--gold) !important; color: var(--dark) !important; font-weight: 700; border-color: var(--gold) !important; }
-  .selected-date-display { margin-top: 0.8rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-align: center; min-height: 1.2rem; }
+  .cal-cell.cal-selected { background: var(--gold) !important; color: var(--dark) !important; font-weight: 800; border-color: var(--gold) !important; }
+  .selected-date-display { margin-top: 0.8rem; font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); text-align: center; min-height: 1.2rem; font-weight: 600; }
 
   /* TIME SLOTS */
   .time-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .time-slot { background: #231a12; border: 1px solid #3a2e26; color: #9a8a7a; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.05em; padding: 0.55rem 0.3rem; border-radius: 2px; cursor: pointer; text-align: center; transition: background 0.15s, border-color 0.15s, color 0.15s; }
+  .time-slot { background: #231a12; border: 1px solid #3a2e26; color: #9a8a7a; font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.06em; padding: 0.55rem 0.3rem; border-radius: 2px; cursor: pointer; text-align: center; transition: background 0.15s, border-color 0.15s, color 0.15s; font-weight: 600; }
   .time-slot:hover { background: #3a2e26; border-color: var(--gold); color: var(--cream); }
-  .time-slot.selected { background: var(--gold) !important; color: var(--dark) !important; border-color: var(--gold) !important; font-weight: 700; }
+  .time-slot.selected { background: var(--gold) !important; color: var(--dark) !important; border-color: var(--gold) !important; font-weight: 800; }
 
-  .booking-btn { width: 100%; background: var(--gold); color: var(--dark); font-family: 'Josefin Sans', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 1.1rem; border: none; cursor: pointer; transition: background 0.2s; border-radius: 2px; margin-top: 0.5rem; }
+  .booking-btn { width: 100%; background: var(--gold); color: var(--dark); font-family: 'Raleway', sans-serif; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; padding: 1.1rem; border: none; cursor: pointer; transition: background 0.2s; border-radius: 2px; margin-top: 0.5rem; }
   .booking-btn:hover { background: var(--gold-light); }
 
   /* REVIEWS / QR */
   .review-section { background: var(--warm-white); padding: 5rem 3rem; border-top: 1px solid var(--border); }
   .review-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
   .review-stars { font-size: 1.6rem; margin-bottom: 0.8rem; letter-spacing: 0.08em; }
-  .review-text p { font-size: 0.95rem; color: var(--mid); line-height: 1.8; max-width: 480px; margin-bottom: 1.5rem; }
-  .review-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 0.7rem 1.5rem; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+  .review-text p { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--mid); line-height: 1.8; max-width: 480px; margin-bottom: 1.5rem; }
+  .review-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Raleway', sans-serif; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 0.7rem 1.5rem; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
   .review-link:hover { background: rgba(201,168,76,0.1); }
   .qr-card { background: var(--dark); border-radius: 4px; padding: 2rem 1.8rem; text-align: center; position: relative; min-width: 200px; }
   .qr-card::before { content: ''; position: absolute; inset: 6px; border: 1px solid var(--gold); border-radius: 2px; opacity: 0.3; pointer-events: none; }
   #qr-code { margin: 0 auto 0.8rem; display: flex; justify-content: center; }
   #qr-code canvas { border-radius: 4px; }
-  .qr-label { font-family: 'Josefin Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
-  .qr-sublabel { font-family: 'Josefin Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: #4a3a2e; margin-top: 0.3rem; }
+  .qr-label { font-family: 'Raleway', sans-serif; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  .qr-sublabel { font-family: 'Raleway', sans-serif; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: #4a3a2e; margin-top: 0.3rem; font-weight: 600; }
 
   /* CONTACT STRIP */
   .contact-strip { background: var(--gold); padding: 2rem 3rem; display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-  .contact-strip p { font-family: 'Josefin Sans', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); }
-  .contact-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--dark); color: var(--gold); font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.7rem 1.5rem; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
+  .contact-strip p { font-family: 'Raleway', sans-serif; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dark); }
+  .contact-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--dark); color: var(--gold); font-family: 'Raleway', sans-serif; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.7rem 1.5rem; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
   .contact-btn:hover { background: var(--brown); }
   .wa-icon { width: 20px; height: 20px; fill: #25d366; flex-shrink: 0; }
   .email-icon { width: 20px; height: 20px; flex-shrink: 0; }
 
   /* FOOTER */
   footer { background: var(--dark); border-top: 1px solid #2a1f17; padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-  .footer-logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.1rem; color: var(--gold); }
-  .footer-logo span { font-style: italic; color: var(--cream); }
-  footer p { font-family: 'Josefin Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; color: #4a3a2e; text-transform: uppercase; }
+  .footer-logo { font-family: 'Cinzel Decorative', serif; font-weight: 900; font-size: 1rem; color: var(--gold); }
+  .footer-logo .yyc-foot { color: var(--gold-bright); }
+  footer p { font-family: 'Raleway', sans-serif; font-size: 0.66rem; letter-spacing: 0.12em; color: #4a3a2e; text-transform: uppercase; font-weight: 600; }
   .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-  .footer-links a { font-family: 'Josefin Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #4a3a2e; text-decoration: none; transition: color 0.2s; }
+  .footer-links a { font-family: 'Raleway', sans-serif; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: #4a3a2e; text-decoration: none; transition: color 0.2s; font-weight: 600; }
   .footer-links a:hover { color: var(--gold); }
 
   /* RESPONSIVE */
@@ -213,7 +298,7 @@
     nav { padding: 0 1.5rem; }
     .nav-links { display: none; }
     .hero-inner { grid-template-columns: 1fr; padding: 2rem 1.5rem; text-align: center; }
-    .hero p { margin: 0 auto 2rem; }
+    .hero p { margin: 0 auto 1.5rem; }
     .hero-btns { justify-content: center; }
     .hero-visual { margin-top: 2rem; }
     .services-section, .gallery-section, .pricing-section, .mobile-section, .booking-section, .review-section { padding: 4rem 1.5rem; }
@@ -235,7 +320,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Mobile<span>Fadeyyc</span></a>
+  <a href="#" class="nav-logo">MobileFade<span class="yyc-nav">YYC</span></a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#pricing">Pricing</a></li>
@@ -250,9 +335,17 @@
 <div class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge">Calgary's Premier Mobile Barber</div>
+      <div class="hero-badge">Calgary's Premier Mobile Barber · <span class="yyc" style="color:var(--gold-bright);">YYC</span></div>
       <h1>The Classic Cut, <em>At Your Door.</em></h1>
-      <p>Premium barbershop experience brought directly to you. Haircuts, hot towel shaves, beard trims — old-school craft, modern convenience.</p>
+      <p>Premium barbershop experience brought directly to you. Haircuts, hot towel shaves, beard trims — old-school craft, modern convenience. Serving all of <strong style="color:var(--gold);">Calgary <span class="yyc">YYC</span></strong>.</p>
+
+      <!-- TAGLINE / COMMENT BLOCK -->
+      <div class="hero-quote">
+        <div class="tagline-top">✂ Professional Barber &nbsp;·&nbsp; DM for Haircut</div>
+        <div class="tagline-loc">Calgary &nbsp;·&nbsp; <span class="yyc" style="color:var(--gold-bright);">YYC</span> &nbsp;·&nbsp; I+I &nbsp;·&nbsp; I+I</div>
+        <blockquote>"Where Every Detail Matters, Because Every Gentleman Deserves Perfection"</blockquote>
+      </div>
+
       <div class="hero-btns">
         <a href="#book" class="btn-primary">Book an Appointment</a>
         <a href="#services" class="btn-ghost">Our Services</a>
@@ -301,7 +394,7 @@
         <div class="service-icon">📍</div>
         <div class="service-name">Mobile / At-Home Visits</div>
         <div class="service-tag">Our Specialty</div>
-        <p class="service-desc">No need to leave the house. We come to you — home, office, or event — fully equipped with everything needed for a premium barbershop experience. Serving all of Calgary (YYC) and surrounding areas.</p>
+        <p class="service-desc">No need to leave the house. We come to you — home, office, or event — fully equipped with everything needed for a premium barbershop experience. Serving all of Calgary <span class="yyc-dark">YYC</span> and surrounding areas.</p>
       </div>
     </div>
   </div>
@@ -342,8 +435,8 @@
         <div class="price-dots"></div><div class="price-amount">$35</div>
       </div>
     </div>
-    <p style="color:#4a3a2e;font-size:0.82rem;margin-top:1.2rem;font-style:italic;font-family:'Josefin Sans',sans-serif;letter-spacing:0.05em;">
-      * Mobile service across Calgary & surrounding areas. Group discounts available for 3+ clients.
+    <p style="color:#4a3a2e;font-size:0.85rem;margin-top:1.2rem;font-style:italic;font-family:'Cormorant Garamond',serif;letter-spacing:0.04em;">
+      * Mobile service across Calgary <span class="yyc" style="font-style:normal;font-size:0.75rem;">YYC</span> & surrounding areas. Group discounts available for 3+ clients.
     </p>
   </div>
 </div>
@@ -354,37 +447,31 @@
     <div class="section-label">The Work</div>
     <h2 class="section-title">Fresh Cuts, Every Time</h2>
     <div class="gallery-grid">
-
       <div class="gallery-item">
         <div class="gallery-fallback"><div class="glyph">✂</div><span>Skin Fade</span></div>
         <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80&fit=crop&crop=face" alt="Skin Fade" loading="lazy">
         <div class="gallery-label">Skin Fade</div>
       </div>
-
       <div class="gallery-item">
         <div class="gallery-fallback"><div class="glyph">🪒</div><span>Beard Trim</span></div>
         <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&q=80&fit=crop" alt="Beard Trim" loading="lazy">
         <div class="gallery-label">Beard Trim</div>
       </div>
-
       <div class="gallery-item">
         <div class="gallery-fallback"><div class="glyph">✂</div><span>Classic Cut</span></div>
         <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=80&fit=crop" alt="Classic Cut" loading="lazy">
         <div class="gallery-label">Classic Cut</div>
       </div>
-
       <div class="gallery-item">
         <div class="gallery-fallback"><div class="glyph">🫧</div><span>Hot Towel Shave</span></div>
         <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=900&q=80&fit=crop" alt="Hot Towel Shave" loading="lazy">
         <div class="gallery-label">Hot Towel Shave</div>
       </div>
-
       <div class="gallery-item">
         <div class="gallery-fallback"><div class="glyph">⚡</div><span>Buzz Cut</span></div>
         <img src="https://images.unsplash.com/photo-1622288432450-277d0fef5ed6?w=600&q=80&fit=crop" alt="Buzz Cut" loading="lazy">
         <div class="gallery-label">Buzz Cut</div>
       </div>
-
     </div>
     <p class="gallery-note">
       See more of our work on Instagram →
@@ -428,8 +515,8 @@
         <span class="pin">📍</span>
         <h3>Based in Calgary</h3>
         <p>69 Cornerglen Way NE</p>
-        <p>Calgary, AB · YYC</p>
-        <p style="margin-top:0.8rem;color:var(--gold);font-size:0.7rem;">Serving all of YYC &amp; area</p>
+        <p>Calgary, AB &nbsp;·&nbsp; <span style="color:var(--gold-bright);font-weight:800;">YYC</span></p>
+        <p style="margin-top:0.8rem;color:var(--gold);font-size:0.7rem;">Serving all of <strong>YYC</strong> &amp; area</p>
       </div>
     </div>
   </div>
@@ -440,7 +527,7 @@
   <div class="booking-inner">
     <div class="section-label">Ready?</div>
     <h2 class="section-title">Book Your Appointment</h2>
-    <p>Fill out the form below and we'll confirm your booking within a few hours. Prefer faster? Message us on WhatsApp or email us directly.</p>
+    <p>Fill out the form below and we'll confirm your booking within a few hours. Prefer faster? Message us on WhatsApp or email us directly at <strong style="color:var(--gold);">mobilefadeyyc@gmail.com</strong>.</p>
 
     <div class="booking-form">
       <div class="form-group">
@@ -526,7 +613,11 @@
       </div>
     </div>
 
-    <button class="booking-btn" onclick="submitBooking()">Request Appointment</button>
+    <a href="https://app.squareup.com/appointments/book/7ivur9hi00t736/L7FSZYVD6DZCM/start"
+       target="_blank"
+       class="booking-btn">
+       Book Appointment Now
+    </a>
   </div>
 </div>
 
@@ -537,14 +628,14 @@
       <div class="section-label">Happy Clients</div>
       <div class="review-stars">★★★★★</div>
       <h2 class="section-title">Love Your Cut?<br>Leave Us a Review</h2>
-      <p>Your review means the world to us and helps other Calgary residents find a trusted mobile barber. Scan the QR code or click below — it only takes 30 seconds!</p>
-      <a href="https://g.page/r/mobilefadeyyc/review" target="_blank" class="review-link">⭐ Leave a Google Review</a>
+      <p>Your review means the world to us and helps other <strong>Calgary <span class="yyc-dark">YYC</span></strong> residents find a trusted mobile barber. Scan the QR code or click below — it only takes 30 seconds!</p>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4" target="_blank" class="review-link">⭐ Leave a Google Review · MobileFade<span style="text-transform:uppercase;color:var(--gold-bright);">YYC</span></a>
     </div>
     <div>
       <div class="qr-card">
         <div id="qr-code"></div>
         <div class="qr-label">Scan to Review</div>
-        <div class="qr-sublabel">Google Reviews · MobileFadeyyc</div>
+        <div class="qr-sublabel">Google Reviews · MobileFadeYYC</div>
       </div>
     </div>
   </div>
@@ -557,25 +648,25 @@
     <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     WhatsApp
   </a>
-  <a href="mailto:Sahiamrit0@gmail.com" class="contact-btn">
+  <a href="mailto:mobilefadeyyc@gmail.com" class="contact-btn">
     <svg class="email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)">
       <rect x="2" y="4" width="20" height="16" rx="2"/>
       <polyline points="22,6 12,13 2,6"/>
     </svg>
-    Sahiamrit0@gmail.com
+    mobilefadeyyc@gmail.com
   </a>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Mobile<span>Fadeyyc</span></div>
-  <p>© 2025 MobileFadeyyc · 69 Cornerglen Way NE, Calgary, AB</p>
+  <div class="footer-logo">MobileFade<span class="yyc-foot">YYC</span></div>
+  <p>© 2025 MobileFadeYYC · 69 Cornerglen Way NE, Calgary, AB</p>
   <div class="footer-links">
     <a href="#services">Services</a>
     <a href="#pricing">Pricing</a>
     <a href="#gallery">Gallery</a>
     <a href="https://www.instagram.com/sahi_amrit?igsh=Zm1keGFrdjNqMzMy" target="_blank">Instagram</a>
-    <a href="mailto:Sahiamrit0@gmail.com">Email</a>
+    <a href="mailto:mobilefadeyyc@gmail.com">Email</a>
     <a href="#book">Book</a>
   </div>
 </footer>
@@ -596,19 +687,15 @@ function renderCal() {
   document.getElementById('cal-month-label').textContent = MONTHS[calMonth] + ' ' + calYear;
   const grid = document.getElementById('cal-grid');
   grid.innerHTML = '';
-
   const today = new Date();
   today.setHours(0,0,0,0);
-
   const firstDay = new Date(calYear, calMonth, 1).getDay();
   const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-
   for (let i = 0; i < firstDay; i++) {
     const cell = document.createElement('div');
     cell.className = 'cal-cell cal-empty';
     grid.appendChild(cell);
   }
-
   for (let d = 1; d <= daysInMonth; d++) {
     const cell = document.createElement('div');
     const cellDate = new Date(calYear, calMonth, d);
@@ -616,16 +703,13 @@ function renderCal() {
     const isPast = cellDate < today;
     const isToday = cellDate.getTime() === today.getTime();
     const isSelected = selectedDate && cellDate.getTime() === selectedDate.getTime();
-
     let cls = 'cal-cell';
     if (isPast) cls += ' cal-past';
     else cls += ' cal-available';
     if (isToday) cls += ' cal-today';
     if (isSelected) cls += ' cal-selected';
-
     cell.className = cls;
     cell.textContent = d;
-
     if (!isPast) {
       cell.addEventListener('click', () => {
         selectedDate = new Date(calYear, calMonth, d);
