@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MobileFade YYC – Classic Barbershop | Calgary</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Cormorant+Upright:wght@300;400;500;600;700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
   :root {
@@ -34,44 +34,47 @@
 
   /* ─── LOGO ─── */
   .logo-mark {
-    display: flex;
+    display: inline-flex;
     align-items: baseline;
-    gap: 0;
     text-decoration: none;
     line-height: 1;
+    letter-spacing: 0;
   }
-  .logo-mobile {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.55rem;
-    letter-spacing: 0.12em;
-    color: var(--cream);
-    text-transform: uppercase;
-  }
-  .logo-fade {
+  /* "Mobile" — light weight, refined, sets the stage */
+  .l-mob {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
+    font-weight: 400;
+    font-size: 1.42rem;
+    color: var(--cream);
+    letter-spacing: 0.01em;
+  }
+  /* "Fade" — heavy, dominant, the hero of the mark */
+  .l-fade {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.42rem;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+  }
+  /* Thin rule separator — classic barbershop divider */
+  .l-rule {
+    display: inline-block;
+    width: 1px;
+    height: 1.1rem;
+    background: rgba(201,168,76,0.45);
+    margin: 0 6px;
+    position: relative;
+    top: 2px;
+    flex-shrink: 0;
+  }
+  /* "YYC" — italic gold, unmistakably Calgary */
+  .l-yyc {
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-style: italic;
+    font-size: 1.42rem;
     color: var(--gold);
     letter-spacing: 0.04em;
-    margin-left: 3px;
-  }
-  .logo-yyc {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.55rem;
-    letter-spacing: 0.18em;
-    color: var(--gold-bright);
-    margin-left: 4px;
-    position: relative;
-    top: -1px;
-  }
-  .logo-dot {
-    width: 5px; height: 5px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 2px 4px 2px;
-    flex-shrink: 0;
   }
 
   /* ─── NAV ─── */
@@ -577,9 +580,10 @@
     justify-content: space-between; flex-wrap: wrap; gap: 2rem;
   }
   .footer-logo-mark { display: flex; align-items: baseline; gap: 0; }
-  .footer-logo-mark .logo-mobile { font-size: 1.2rem; }
-  .footer-logo-mark .logo-fade { font-size: 1rem; }
-  .footer-logo-mark .logo-yyc { font-size: 1.2rem; }
+  .footer-logo-mark .l-mob { font-size: 1.15rem; }
+  .footer-logo-mark .l-fade { font-size: 1.15rem; }
+  .footer-logo-mark .l-yyc { font-size: 1.15rem; }
+  .footer-logo-mark .l-rule { height: 0.9rem; }
   footer p { font-family: 'Raleway', sans-serif; font-size: 0.64rem; letter-spacing: 0.14em; color: #3a2e26; text-transform: uppercase; font-weight: 600; }
   .footer-links { display: flex; gap: 1.8rem; flex-wrap: wrap; }
   .footer-links a { font-family: 'Raleway', sans-serif; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: #3a2e26; text-decoration: none; transition: color 0.2s; font-weight: 600; }
@@ -613,7 +617,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="logo-mark">
-    <span class="logo-mobile">Mobile</span><span class="logo-fade">Fade</span><span class="logo-yyc">YYC</span>
+    <span class="l-mob">Mobile</span><span class="l-fade">Fade</span><span class="l-rule"></span><span class="l-yyc">YYC</span>
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -928,8 +932,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <a href="#" class="footer-logo-mark logo-mark">
-    <span class="logo-mobile">Mobile</span><span class="logo-fade">Fade</span><span class="logo-yyc">YYC</span>
+  <a href="#" class="logo-mark footer-logo-mark">
+    <span class="l-mob">Mobile</span><span class="l-fade">Fade</span><span class="l-rule"></span><span class="l-yyc">YYC</span>
   </a>
   <p>© 2025 MobileFadeYYC · 69 Cornerglen Way NE, Calgary, AB</p>
   <div class="footer-links">
